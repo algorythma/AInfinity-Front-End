@@ -1,0 +1,22 @@
+{
+	"name": "web-content-portal",
+	"version": "1.0.0",
+	"description": "",
+	"private": true,
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack",
+		"start": "webpack-dev-server --history-api-fallback --inline --progress"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"html-webpack-plugin": "^3.2.0",
+		"webpack": "^4.8.3",
+		"webpack-cli": "^2.0.9",
+		"webpack-dev-server": "^3.1.4"
+	},
+	"dependencies": {}
+}
