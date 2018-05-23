@@ -78,7 +78,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("function component() {\n  var element = document.createElement('div');\n\n  //Lodash, currently included via a script, is required for this line to work\n  element.innerHTML = _.join(['Hello', 'webpack'], ' ');\n\n  return element;\n}\n\ndocument.body.appendChild(component());\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("\nangular.module('web-content-portal', []).controller('APICall', ['$scope', '$http', function($scope, $http) {\n\n\n\t// $scope.getRequest = function(){\n\t// \tvar url = 'http://192.168.71.10:10002/v1/students/6dcede32-693c-4340-809d-63a3ef9c33e2/assignments';\n\n\t// \t$http.get(url)\n //        .then(function(response) {\n //            $scope.assignmentResponse = response.data;\n //            console.log(\"status:\");\n //        }).catch(function(response) {\n\t// \t  console.error('Error occurred:');\n\t// \t}).finally(function() {\n\t// \t\t console.log(\"Task Finished....\");\n\t// \t});\n\t// };\n\n}]);\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
