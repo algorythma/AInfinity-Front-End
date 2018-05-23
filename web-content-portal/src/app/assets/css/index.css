@@ -1,0 +1,15 @@
+.homePageImage{
+	background-image: url("../img/lms.png");
+}
+
+.homePageNavBar{
+	float: right;
+}
+
+.homePageNavBar form{
+	margin-top: 20px;
+}
+
+.navbar .navbar-toggler{
+	margin-top: 20px;
+}

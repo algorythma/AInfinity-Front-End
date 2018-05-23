@@ -66,19 +66,31 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/***/ "./src/app/app.module.js":
+/*!*******************************!*\
+  !*** ./src/app/app.module.js ***!
+  \*******************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("\nangular.module('web-content-portal', []).controller('APICall', ['$scope', '$http', function($scope, $http) {\n\n\n\t// $scope.getRequest = function(){\n\t// \tvar url = 'http://192.168.71.10:10002/v1/students/6dcede32-693c-4340-809d-63a3ef9c33e2/assignments';\n\n\t// \t$http.get(url)\n //        .then(function(response) {\n //            $scope.assignmentResponse = response.data;\n //            console.log(\"status:\");\n //        }).catch(function(response) {\n\t// \t  console.error('Error occurred:');\n\t// \t}).finally(function() {\n\t// \t\t console.log(\"Task Finished....\");\n\t// \t});\n\t// };\n\n}]);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+"use strict";
+eval("\n\nvar app = angular.module('web-content-portal', []);\n\napp.controller(\"IndexController\", function($scope){\n\t$scopr.greeting =\"Login me now\";\n});\n\n//# sourceURL=webpack:///./src/app/app.module.js?");
+
+/***/ }),
+
+/***/ 0:
+/*!*************************************!*\
+  !*** multi ./src/app/app.module.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__(/*! ./src/app/app.module.js */\"./src/app/app.module.js\");\n\n\n//# sourceURL=webpack:///multi_./src/app/app.module.js?");
 
 /***/ })
 
