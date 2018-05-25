@@ -13,32 +13,9 @@
 
 </head>
 
-<body class="homePageImage" ng-controller="IndexController">	
-	<div class="container-fluid"> 
-
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-		  <!-- <a class="navbar-brand hidden-xs" href="#">{myPronunciation}</a> -->
-		  <button class="navbar-toggler visible-xs-inline" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="glyphicon glyphicon-menu-hamburge" aria-hidden="true"></span>
-		  </button>
-		  
-		  <div class="collapse navbar-collapse homePageNavBar" id="navbarSupportedContent">
-		    
-		    <form class="form-inline">
-		      <button class="btn btn-primary" ng-click="openRegistrationModal()">Sign Up</button>
-		      <button class="btn btn-primary" type="submit">Sign In</button>
-		    </form>
-
-		  </div>
-		</nav>
-		<ng-include src="'./app/assets/templates/registrationModal.html'"></ng-include>
-
-		<!-- Division to show global error message  -->
-		<div ng-show="message" class="alert alert-danger">
-		    {{message}}
-		</div>
-	</div>
+<body>	
+	
+	<landing></landing>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -48,6 +25,7 @@
 	<script src="https://unpkg.com/@angular/router@0.2.0/angular1/angular_1_router.js"></script>
 	
 	<script src="./app/app.js"></script>
+	<script src="app/components/landing.component.js"></script>
 	<script src="app/components/header.component.js"></script>
     <script src="app/components/home.component.js"></script>
 </body>

@@ -1,0 +1,25 @@
+<div class="container-fluid homePageImage"> 
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+	  <button class="navbar-toggler visible-xs-inline" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="glyphicon glyphicon-menu-hamburge" aria-hidden="true"></span>
+	  </button>
+	  
+	  <div class="collapse navbar-collapse homePageNavBar" id="navbarSupportedContent">
+	    
+	    <form class="form-inline">
+	      <button class="btn btn-primary" ng-click="vm.openRegisterModal()">Sign Up</button>
+	      <button class="btn btn-primary" type="submit">Sign In</button>
+	    </form>
+
+	  </div>
+	</nav>
+	<ng-include src="'../app/assets/templates/registrationModal.html'"></ng-include>
+
+	<!-- Division to show global error message  -->
+	<div ng-show="message" class="alert alert-danger">
+	    {{message}}
+	</div>
+
+</div>

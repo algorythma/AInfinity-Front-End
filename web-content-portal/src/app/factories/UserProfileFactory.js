@@ -8,7 +8,7 @@ app.factory('UserProfileFactory', function($http){
 	var userProfileFactory = {};
 
 	userProfileFactory.getPosts = function(){
-		return $http.get(urlBase + '/posts');
+		userProfileFactory =  $http.get(urlBase + '/posts');
 	}
 
 	return userProfileFactory;
