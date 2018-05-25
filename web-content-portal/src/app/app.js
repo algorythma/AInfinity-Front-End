@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('web-content-portal', ["registerModalModule"]);
+var app = angular.module('web-content-portal', ['registerModalModule', 'ngComponentRouter']);
 
 app.controller("IndexController", ["$scope",'$window', function($scope){
 	$scope.greeting ="Login me now";
@@ -53,8 +53,17 @@ app.factory('UserProfileFactory', function($http){
 });
 
 //Dashboard  Controller
-app.controller('DashboardController', function($scope) {
-    $scope.message = 'Everyone come and see how good I look!';
+// app.controller('DashboardController', function($scope) {
+//     $scope.message = 'Everyone come and see how good I look!';
+// });
+
+
+app.value('$routerRootComponent','dashboard');
+app.component('dashboard',{
+  template:'<header-component></header-component><ng-outlet></ng-outlet>',
+  $routeConfig:[
+    // {path:'/',component:'homeComponent',name:'Home'}
+  ]
 });
 
 

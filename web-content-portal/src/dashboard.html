@@ -7,26 +7,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- <link rel="stylesheet" href="./app/assets/vendor/bootstrap/dist/css/bootstrap.css"> -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
   <link rel="stylesheet" href="./app/assets/css/index.css">
 
 </head>
 
-<body class="dashboard" ng-controller="DashboardController">	
-	<div class="container-fluid"> 
-
-	<div class="jumbotron text-center">
-		<h1> {{message}} </h1>
-	</div>
-
+<body>
+	<dashboard></dashboard>
 </div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-	<script src="./app/app.module.js"></script>
-	<script src="./app/app.config.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.js"></script>
+	<script src="https://unpkg.com/@angular/router@0.2.0/angular1/angular_1_router.js"></script>
+
+	<script src="./app/app.js"></script>
+	<script src="app/components/header.component.js"></script>
+    <script src="app/components/home.component.js"></script>
 </body>
 </html>
