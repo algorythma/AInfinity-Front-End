@@ -1,0 +1,17 @@
+{
+  "name": "angular-components-demo",
+  "version": "0.0.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.8",
+    "bootstrap": "~3.3.7",
+    "angular-component-router": "~0.2.1"
+  }
+}

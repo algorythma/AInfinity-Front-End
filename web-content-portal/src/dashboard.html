@@ -13,38 +13,19 @@
 
 </head>
 
-<body class="homePageImage" ng-controller="IndexController">	
+<body class="dashboard" ng-controller="DashboardController">	
 	<div class="container-fluid"> 
 
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-		  <!-- <a class="navbar-brand hidden-xs" href="#">{myPronunciation}</a> -->
-		  <button class="navbar-toggler visible-xs-inline" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="glyphicon glyphicon-menu-hamburge" aria-hidden="true"></span>
-		  </button>
-		  
-		  <div class="collapse navbar-collapse homePageNavBar" id="navbarSupportedContent">
-		    
-		    <form class="form-inline">
-		      <button class="btn btn-outline-success" ng-click="openRegistrationModal()">Sign Up</button>
-		      <button class="btn btn-outline-success" type="submit">Sign In</button>
-		    </form>
-
-		  </div>
-		</nav>
-		<ng-include src="'./app/assets/templates/registrationModal.html'"></ng-include>
-
-		<!-- Division to show global error message  -->
-		<div ng-show="message" class="alert alert-danger">
-		    {{message}}
-		</div>
+	<div class="jumbotron text-center">
+		<h1> {{message}} </h1>
 	</div>
+
+</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-
 	<script src="./app/app.module.js"></script>
 	<script src="./app/app.config.js"></script>
 </body>
