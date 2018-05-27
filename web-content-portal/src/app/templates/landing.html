@@ -9,13 +9,14 @@
 	  <div class="collapse navbar-collapse homePageNavBar" id="navbarSupportedContent">
 	    
 	    <form class="form-inline">
-	      <button class="btn btn-primary" ng-click="vm.openRegisterModal()">Sign Up</button>
-	      <button class="btn btn-primary" type="submit">Sign In</button>
+	      <button class="btn btn-primary" ng-click="vm.openModal('modalRegisterForm')">Sign Up</button>
+	      <button class="btn btn-primary" ng-click="vm.openModal('modalLoginForm')">Sign In</button>
 	    </form>
 
 	  </div>
 	</nav>
 	<ng-include src="'../app/assets/templates/registrationModal.html'"></ng-include>
+	<ng-include src="'../app/assets/templates/loginModal.html'"></ng-include>
 
 	<!-- Division to show global error message  -->
 	<div ng-show="message" class="alert alert-danger">
