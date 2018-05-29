@@ -24,13 +24,13 @@ var headerCtrl = function($http, $window, $scope, localStorage){
             data: userJson
         };
 
-        if(isUserAuthenticated()){
+        if(isUserAuthenticated(vm.updateUserInfo)){
         	httpPutUpdateUserCall(request);
         }
 
     };
 
-    var isUserAuthenticated = function(){
+    var isUserAuthenticated = function(parentAPI){
 
     	var currentDateTime = new Date().toLocaleString();
 
@@ -43,7 +43,7 @@ var headerCtrl = function($http, $window, $scope, localStorage){
     		return true;
     	}else{
     		console.log('Invalid access token - Hit Refresh token API');
-    		prepareRefreshTokenAPI();
+    		prepareRefreshTokenAPI(parentAPI);
     	}
 		
 	}
@@ -59,7 +59,7 @@ var headerCtrl = function($http, $window, $scope, localStorage){
         });
     }
 
-    var prepareRefreshTokenAPI = function(){
+    var prepareRefreshTokenAPI = function(parentAPI){
 
     	var refreshJson ={
 			"refresh-token": obj.refresh_token
@@ -74,13 +74,13 @@ var headerCtrl = function($http, $window, $scope, localStorage){
             data: refreshJson
         };
 
-        httpPostrefreshTokenCall(request);
+        httpPostRefreshTokenCall(request, parentAPI);
     }
 
 
-    var httpPostrefreshTokenCall = function(request) {
+    var httpPostRefreshTokenCall = function(request, parentAPI) {
 
-    	console.log("Inside httpPostrefreshTokenCall function ");
+    	console.log("Inside httpPostRefreshTokenCall function ");
 
         $http(request).then(function (response) {
 
@@ -95,6 +95,7 @@ var headerCtrl = function($http, $window, $scope, localStorage){
 
             if(localStorage.setAccessAndRefreshToken(obj)){
             	console.log("After refresh API - data saved in local storage");
+            	// parentAPI.click();
             }
 
         }, function (error) {

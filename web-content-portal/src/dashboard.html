@@ -3,12 +3,22 @@
 
 <head>
 
+	<!-- If you are deploying your app into the root context (e.g. https://myapp.com/), set the base URL to /: <base href="/"> -->
+
+	<!-- If you are deploying your app into a sub-context (e.g. https://myapp.com/subapp/), set the base URL to the URL of the subcontext:  <base href="/subapp/"> -->
+
+  <!-- <base href="/"> -->
   <title>Web Content Portal</title>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin|Merriweather" rel="stylesheet">
+    
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous">
   <link rel="stylesheet" href="./app/assets/css/index.css">
+  <link rel="stylesheet" href="./app/assets/css/dashboard.css">
 
 </head>
 
@@ -24,5 +34,8 @@
 	<script src="./app/app.js"></script>
 	<script src="app/components/header.component.js"></script>
     <script src="app/components/home.component.js"></script>
+    <script src="app/components/student.component.js"></script>
+    <script src="app/components/class.component.js"></script>
+    <script src="app/components/assignment.component.js"></script>
 </body>
 </html>

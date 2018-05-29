@@ -2,9 +2,6 @@
 var landingCtrl = function($http, $window, $scope, localStorage){
 	var vm = this;
 
-	console.log("vm.firstName =" + vm.firstName + "vm.lastName =" + vm.lastName + "vm.email =" + vm.email +
-		"vm.dob =" + vm.dob + "vm.password =" + vm.password);
-
 	vm.openModal = function(modalType){
 		console.log("Inside openRegisterModal function modalType =" + modalType);
 		var dlgElem;

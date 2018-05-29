@@ -1,0 +1,68 @@
+
+body {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400 !important;
+}
+
+.container-fluid{
+	padding: 0;
+}
+
+.homePageImage{
+	background-image: url("../img/lms.png");
+	height: 992px;
+	width: 100%;
+	padding: 0;
+}
+
+.navbar-inverse{
+	border-radius: 0;
+}
+
+.homePageNavBar{
+	float: right;
+}
+
+.homePageNavBar form{
+	margin-top: 20px;
+}
+
+.navbar .navbar-toggler{
+	margin-top: 20px;
+}
+
+.dashboard-header{
+	height: 50px;
+	line-height: 50px;
+	background-color: #2E3F56;
+}
+
+.dashboard-header nav{
+	border:0;
+}
+.navbar-header{
+	background-color: #338DD0;
+}
+.navbar-header i{
+	color: #fff;
+	font-size: 24px;
+    padding: 0 20px;
+}
+
+.nav >li.navLi > a:focus, .nav >li.navLi > a:hover {
+	text-decoration: none;
+    background-color: #338DD0;
+    color: #fff;
+}
+
+.navLi{
+	padding: 0 20px;
+}
+
+.navLi a{
+	color: #fff;
+}
+
+.settings-div{
+	padding: 8px 20px 0 0;
+}

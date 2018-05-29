@@ -15,8 +15,10 @@ app.value('$routerRootComponent','dashboard');
 app.component('dashboard',{
   template:'<header-component></header-component><ng-outlet></ng-outlet>',
   $routeConfig:[
-    {path:'/',component:'homeComponent',name:'Home'},
-    // {path:'/user',component:'userComponent',name:'User'}
+    {path:'/', component:'homeComponent', name:'Home'},
+    {path:'/students', component:'studentComponent', name:'Student'},
+    {path:'/class', component:'classComponent', name:'Class'},
+    {path:'/assignments', component:'assignmentComponent', name:'Assignment'}
   ]
 });
 
