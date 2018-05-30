@@ -54,19 +54,22 @@ app.factory("localStorage", function($window, $rootScope) {
         convertSecondsToDateTime: function(totalSeconds) {
 
           console.log("Inside convertSecondsToDateTime = " + totalSeconds);
+
           var hours   = Math.floor(totalSeconds / 3600);
           var minutes = Math.floor((totalSeconds - (hours * 3600)) / 60);
           var seconds = totalSeconds - (hours * 3600) - (minutes * 60);
           // round seconds
           seconds = Math.round(seconds * 100) / 100
 
-          var now=new Date();
-          var later=new Date();
+          var now = new Date();
+          var later = new Date();
           later.setHours(now.getHours()+hours);
           later.setMinutes(now.getMinutes()+minutes);
-          later.setSeconds(now.getSeconds()+seconds);
-          console.log("Expiry date time is : ", later.toLocaleString());
-          return later.toLocaleString();
+          //later.setSeconds(now.getSeconds()+seconds);
+
+          later = later.getDate() + "-" + (later.getMonth()+1) + "-" + later.getFullYear() +  " " + later.getHours() + "-" + (later.getMinutes());
+          return later;
         }
+
     };
 });

@@ -1,6 +1,6 @@
 
 body {
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: 'Libre Franklin', sans-serif !important;
   font-weight: 400 !important;
 }
 
@@ -49,7 +49,7 @@ body {
     padding: 0 20px;
 }
 
-.nav >li.navLi > a:focus, .nav >li.navLi > a:hover {
+.navbar-nav>li>a:focus, .navbar-nav>li>a:hover {
 	text-decoration: none;
     background-color: #338DD0;
     color: #fff;
@@ -59,10 +59,25 @@ body {
 	padding: 0 20px;
 }
 
-.navLi a{
+.navbar-nav>li>a{
 	color: #fff;
 }
 
 .settings-div{
-	padding: 8px 20px 0 0;
+	padding: 10px 20px 0 0;
+}
+
+assignment-component .container{
+	background-color: #F9F9F9;
+}
+
+#assignment-tab h3 {
+  color: #333;
+    background-color: #F9F9F9;
+    padding: 5px 15px;
+}
+
+#assignment-tab .nav-tabs>li.active>a{
+	    background-color: #338DD0;
+	    color: #fff;
 }

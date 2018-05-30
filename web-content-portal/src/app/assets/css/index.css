@@ -57,8 +57,7 @@ header.masthead .bg-circle-4 {
 
 .headline h2 {
     font-size: 77px;
-    background: #fff;
-    background: rgba(255,255,255,0.9);
+    color: #fff;
 }
 
 .featurette-divider {
@@ -166,6 +165,10 @@ footer {
 
     .featurette-divider {
         margin: 30px 0;
+    }
+
+    .bg-circle-2{
+        display: none;
     }
 }
 
