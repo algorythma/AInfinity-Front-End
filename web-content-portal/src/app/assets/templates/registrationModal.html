@@ -1,48 +1,66 @@
 <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
 
-                <div class="form-group">
-                    <i class="fa fa-envelope prefix grey-text"></i>
-                    <label data-error="wrong" data-success="right" for="email">Email</label>
-                    <input type="email" class="form-control validate" ng-model="vm.registerEmail">
+            <form name="signUpForm" class="myForm" required>
+
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title font-weight-bold">Sign up</h4>
                 </div>
 
-                <div class="form-group">
-                    <i class="fa fa-user prefix grey-text"></i>
-                    <label data-error="wrong" data-success="right" for="first-name">First Name</label>
-                    <input type="text" class="form-control validate" ng-model="vm.registerFirstName">
+                <div class="modal-body">
+
+                    <div class="form-group" ng-class="{ 'has-error' : signUpForm.registerEmailField.$invalid && !signUpForm.registerEmailField.$pristine }">
+                        <i class="fa fa-envelope prefix grey-text"></i>
+                        <label data-error="wrong" data-success="right" for="email">Email</label>
+                        <input type="email" class="form-control" name="registerEmailField" ng-model="vm.registerEmail" required>
+
+                        <p ng-show="signUpForm.registerEmailField.$invalid && !signUpForm.registerEmailField.$pristine" class="help-block">Your email is required.</p>
+
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' : signUpForm.registerNameField.$invalid && !signUpForm.registerNameField.$pristine }">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <label data-error="wrong" data-success="right" for="first-name">First Name</label>
+                        <input type="text" class="form-control" name="registerNameField" ng-model="vm.registerFirstName" required>
+
+                        <p ng-show="signUpForm.registerNameField.$invalid && !signUpForm.registerNameField.$pristine" class="help-block">You first name is required.</p>
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' : signUpForm.registerLastNameField.$invalid && !signUpForm.registerLastNameField.$pristine }">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <label data-error="wrong" data-success="right" for="last-name">Last Name</label>
+                        <input type="text" class="form-control" name="registerLastNameField" ng-model="vm.registerLastName" required>
+
+                        <p ng-show="signUpForm.registerLastNameField.$invalid && !signUpForm.registerLastNameField.$pristine" class="help-block">You last name is required.</p>
+                    </div>
+                    
+                    <div class="form-group" ng-class="{ 'has-error' : signUpForm.registerDobField.$invalid && !signUpForm.registerDobField.$pristine }">
+                        <i class="fa fa-envelope prefix grey-text"></i>
+                        <label data-error="wrong" data-success="right" for="dob">Date Of Birth</label>
+                        <input type="calendar" class="form-control" name="registerDobField" ng-model="vm.registerDob" required>
+
+                        <p ng-show="signUpForm.registerDobField.$invalid && !signUpForm.registerDobField.$pristine" class="help-block">You date of birth is required.</p>
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' : signUpForm.registerPasswordField.$invalid && !signUpForm.registerPasswordField.$pristine }">
+                        <i class="fa fa-lock prefix grey-text"></i>
+                        <label data-error="wrong" data-success="right" for="pass">Your password</label>
+                        <input type="password" class="form-control" name="registerPasswordField" ng-model="vm.registerPassword" required>
+
+                        <p ng-show="signUpForm.registerPasswordField.$invalid && !signUpForm.registerPasswordField.$pristine" class="help-block">You password is required.</p>
+                    </div>
+
                 </div>
 
-                <div class="form-group">
-                    <i class="fa fa-user prefix grey-text"></i>
-                    <label data-error="wrong" data-success="right" for="last-name">Last Name</label>
-                    <input type="text" class="form-control validate" ng-model="vm.registerLastName">
-                </div>
-                
-                <div class="form-group">
-                    <i class="fa fa-envelope prefix grey-text"></i>
-                    <label data-error="wrong" data-success="right" for="dob">Date Of Birth</label>
-                    <input type="calendar" class="form-control validate" ng-model="vm.registerDob">
+                <div class="modal-footer justify-content-center">
+                    <button class="btn btn-primary" ng-click="vm.registerMe()" ng-disabled="signUpForm.$invalid">Sign up</button>
                 </div>
 
-                <div class="form-group">
-                    <i class="fa fa-lock prefix grey-text"></i>
-                    <label data-error="wrong" data-success="right" for="pass">Your password</label>
-                    <input type="password" class="form-control validate" ng-model="vm.registerPassword">
-                </div>
-
-            </div>
-            <div class="modal-footer justify-content-center">
-                <button class="btn btn-primary" ng-click="vm.registerMe()">Sign up</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>

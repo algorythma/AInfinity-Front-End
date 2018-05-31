@@ -1,19 +1,10 @@
 
-var landingCtrl = function($http, $window, $scope, localStorage){
+var landingCtrl = function($http, $window, $scope, localStorage, modalFactory){
 	var vm = this;
 
 	vm.openModal = function(modalType){
 		console.log("Inside openRegisterModal function modalType =" + modalType);
-		var dlgElem;
-		if(modalType == 'modalRegisterForm'){
-			dlgElem = angular.element("#modalRegisterForm");
-		}else{
-			dlgElem = angular.element("#modalLoginForm");
-		}
-		
-	    if (dlgElem) {
-	     	dlgElem.modal("show");
-	    }
+		modalFactory.openModal(modalType);
 	}
 
 	vm.registerMe = function () {
@@ -79,10 +70,14 @@ var landingCtrl = function($http, $window, $scope, localStorage){
 
         }, function (error) {
             $scope.message = 'Unable to register you: Please make sure you have entered all the required fields';
-            var dlgElem = angular.element("#modalLoginForm");
-		    if (dlgElem) {
-		       dlgElem.modal("hide");
-		    }
+
+            var dlgElem = angular.element("#modalLoginForm .modal-body");
+            var errorMessage = '<div class="alert alert-danger">Please enter correct username / password. </div>';
+            dlgElem.append(errorMessage);
+
+		    // if (dlgElem) {
+		    //    dlgElem.modal("hide");
+		    // }
         });
     }
 
@@ -95,10 +90,16 @@ var landingCtrl = function($http, $window, $scope, localStorage){
                dlgElem.modal("hide");
             }
         }, function (error) {
-            $scope.message = 'Unable to register you: Please make sure you have entered all the required fields';
-            if (dlgElem) {
-               dlgElem.modal("hide");
-            }
+            
+            // $scope.message = 'Unable to register you: Please make sure you have entered all the required fields';
+
+            var dlgElem = angular.element("#modalRegisterForm .modal-body");
+            var errorMessage = '<div class="alert alert-danger">Unable to sign up. Please make sure you have entered correct details. </div>';
+            dlgElem.append(errorMessage);
+
+            // if (dlgElem) {
+            //    dlgElem.modal("hide");
+            // }
         });
     }
 
@@ -107,7 +108,7 @@ var landingCtrl = function($http, $window, $scope, localStorage){
 
 app.controller('landingCtrl', landingCtrl);
 
-landingCtrl.$inject = ["$http", "$window", "$scope", "localStorage"];
+landingCtrl.$inject = ["$http", "$window", "$scope", "localStorage", "modalFactory"];
 
 app.component('landingComponent',{
   templateUrl:'../app/templates/landing.html',

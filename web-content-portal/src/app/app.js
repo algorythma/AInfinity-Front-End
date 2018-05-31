@@ -51,6 +51,11 @@ app.factory("localStorage", function($window, $rootScope) {
           return JSON.parse($window.localStorage && $window.localStorage.getItem('my-storage'));
         },
 
+        clearLocalStorageKey: function(){
+          $window.localStorage.removeItem("my-storage");
+          return this;
+        },
+
         convertSecondsToDateTime: function(totalSeconds) {
 
           console.log("Inside convertSecondsToDateTime = " + totalSeconds);
@@ -72,4 +77,35 @@ app.factory("localStorage", function($window, $rootScope) {
         }
 
     };
+});
+
+app.factory("modalFactory", function($window, $rootScope){
+
+  return{
+
+      openModal: function(modalType){
+
+        console.log("Inside openModal function modalType =" + modalType);
+        var dlgElem;
+        switch (modalType) {
+            case "modalLoginForm" :
+                dlgElem = angular.element("#modalLoginForm");
+                break; 
+            case "modalRegisterForm" :
+                dlgElem = angular.element("#modalRegisterForm");
+                break; 
+            case "forceLogoutModal" :
+                dlgElem = angular.element("#forceLogoutModal");
+                break; 
+            default: 
+                dlgElem = angular.element("#forceLogoutModal");
+        }
+        
+        if (dlgElem) {
+            dlgElem.modal("show");
+        }
+    }
+
+  };
+
 });

@@ -1,4 +1,4 @@
-var headerCtrl = function($http, $window, $scope, localStorage){
+var headerCtrl = function($http, $window, $scope, localStorage, modalFactory){
 	var vm = this;
 
 	var obj = localStorage.getAccessAndRefreshToken();
@@ -137,15 +137,15 @@ var headerCtrl = function($http, $window, $scope, localStorage){
 
         }, function (error) {
             console.log("Error from 1st API call =", error);
+            modalFactory.openModal('forceLogoutModal');
             // Force logout user and take to the login page.
         });
+    }
 
-        // }).then(function(response){
-        //     console.log("Calling chain of API");
-        //     
-        // }, function (error) {
-        //     console.log("Error from 2st API call =", error);
-        // });
+    vm.forceLogout = function(){
+        if(localStorage.clearLocalStorageKey()){
+            $window.location.href = './index.html';
+        }
     }
 
 }
@@ -153,7 +153,7 @@ var headerCtrl = function($http, $window, $scope, localStorage){
 
 app.controller('headerCtrl', headerCtrl);
 
-headerCtrl.$inject = ["$http", "$window", "$scope", "localStorage"];
+headerCtrl.$inject = ["$http", "$window", "$scope", "localStorage", "modalFactory"];
 
 app.component('headerComponent',{
   templateUrl:'../app/templates/header.html',
