@@ -3,9 +3,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
-  entry: ['./src/app/app.js'],
+  entry: ['./app.js',
+          './src/app/components/landing.component.js',
+          './src/app/components/header.component.js',
+          './src/app/components/home.component.js',
+          './src/app/components/student.component.js',
+          './src/app/components/class.component.js',
+          './src/app/components/assignment.component.js',
+          './src/app/components/user.component.js'
+         ],
+  devtool: 'inline-source-map',
   output: {
-  	// path: __dirname + '/dist/',
+  	path: __dirname + '/dist',
     // path: '/',
     filename: 'bundle.js'
   },
@@ -16,7 +25,7 @@ module.exports = {
 	  poll: false
   },
   devServer: {  // configuration for webpack-dev-server
-      contentBase: './src',  //source of static assets
+      // contentBase: './src',  //source of static assets
       watchContentBase: true, // initiate a page refresh if static content changes
       port: 8080, // port to run dev-server
   } 

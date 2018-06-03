@@ -1,6 +1,19 @@
+var app = angular.module('web-content-portal');
 
 var landingCtrl = function($http, $window, $scope, localStorage, modalFactory){
 	var vm = this;
+
+    vm.closeModal = function(){
+        var dlgElem = angular.element(".modal");
+        if (dlgElem) {
+            dlgElem.modal("hide");
+        }
+    }
+
+    vm.openForgotModal = function(){
+        vm.closeModal();
+        vm.openModal('modalForgot');
+    }
 
 	vm.openModal = function(modalType){
 		console.log("Inside openRegisterModal function modalType =" + modalType);
@@ -9,6 +22,12 @@ var landingCtrl = function($http, $window, $scope, localStorage, modalFactory){
 
 	vm.registerMe = function () {
 		console.log("do action on Modal sign up clicked--");
+
+        var dlgElem = angular.element("#modalRegisterForm .modal-body .alert");
+        if(dlgElem){
+            dlgElem.detach();
+        }
+
 		var signUpJson ={
 			"email": vm.registerEmail,
 			"first_name": vm.registerFirstName,
@@ -33,6 +52,12 @@ var landingCtrl = function($http, $window, $scope, localStorage, modalFactory){
 
     vm.loginMe = function(){
 	   	console.log("do action on Modal login clicked--");
+
+        var dlgElem = angular.element("#modalLoginForm .modal-body .alert");
+        if(dlgElem){
+            dlgElem.detach();
+        }
+
 	   	var loginJson ={
 			"username": vm.loginUsername,
 			"password": vm.loginPassword,
@@ -48,6 +73,30 @@ var landingCtrl = function($http, $window, $scope, localStorage, modalFactory){
 
 	   	httpPostLoginCall(request);
 	}
+
+    vm.forgotPassword = function(){
+        console.log("do action on Forgot password click--");
+
+        var dlgElem = angular.element("#modalForgot .modal-body .alert");
+        if(dlgElem){
+            dlgElem.detach();
+        }
+
+        var forgotJson ={
+            "email": vm.forgotUserEnail
+        };
+        var request = {
+            method: 'POST',
+            url: 'http://192.168.71.10:10010/api/aiuam/v1/users/forget-password',
+            headers: {
+               'Content-Type': 'application/json',
+             },
+            data: forgotJson
+
+        };
+
+        httpPostForgotPasswordCall(request);
+    }
 
     var httpPostLoginCall = function(request) {
 
@@ -69,15 +118,12 @@ var landingCtrl = function($http, $window, $scope, localStorage, modalFactory){
 
 
         }, function (error) {
-            $scope.message = 'Unable to register you: Please make sure you have entered all the required fields';
+
+		    var errorDescription = error.data.description;
 
             var dlgElem = angular.element("#modalLoginForm .modal-body");
-            var errorMessage = '<div class="alert alert-danger">Please enter correct username / password. </div>';
+            var errorMessage = '<div class="alert alert-danger">' +errorDescription +' </div>';
             dlgElem.append(errorMessage);
-
-		    // if (dlgElem) {
-		    //    dlgElem.modal("hide");
-		    // }
         });
     }
 
@@ -90,28 +136,50 @@ var landingCtrl = function($http, $window, $scope, localStorage, modalFactory){
                dlgElem.modal("hide");
             }
         }, function (error) {
-            
-            // $scope.message = 'Unable to register you: Please make sure you have entered all the required fields';
+            var errorDescription = error.data.description;
 
             var dlgElem = angular.element("#modalRegisterForm .modal-body");
-            var errorMessage = '<div class="alert alert-danger">Unable to sign up. Please make sure you have entered correct details. </div>';
+            var errorMessage = '<div class="alert alert-danger">' +errorDescription +' </div>';
             dlgElem.append(errorMessage);
 
-            // if (dlgElem) {
-            //    dlgElem.modal("hide");
-            // }
         });
     }
 
-}
+    var httpPostForgotPasswordCall = function(request){
 
+        console.log("Inside httpPostForgotPasswordCall function ");
+
+        var dlgElem = angular.element("#modalForgot .modal-body");
+
+        var errorMessage = '<div class="alert alert-danger">Please enter valid email address. </div>';
+
+        $http(request).then(function (response) {
+            var tokenData = response.data;
+            var successFlag = tokenData.success;
+            console.log("Success value=", tokenData.success);
+            // show success message to user
+
+            if(successFlag){
+                errorMessage = '<div class="alert alert-success">Please check your email to reset your password.</div>';
+            }
+            dlgElem.append(errorMessage);
+            
+        }, function (error) {
+
+            dlgElem.append(errorMessage);
+
+        });
+
+    }
+
+}
 
 app.controller('landingCtrl', landingCtrl);
 
 landingCtrl.$inject = ["$http", "$window", "$scope", "localStorage", "modalFactory"];
 
 app.component('landingComponent',{
-  templateUrl:'../app/templates/landing.html',
+  templateUrl:'../src/app/templates/landing.html',
   controller: 'landingCtrl',
   controllerAs: 'vm'
 });

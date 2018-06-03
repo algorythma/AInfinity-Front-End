@@ -1,7 +1,9 @@
+var app = angular.module('web-content-portal');
+
 var userCtrl = function($http, $window, $scope, localStorage){
 	var vm = this;
 
-	this.$routerOnActivate = function(next) {
+	this.$routerOnActivate = function(next, previous) {
 		// console.log("Inside routerOnActivate ");
 	}
 
@@ -9,10 +11,10 @@ var userCtrl = function($http, $window, $scope, localStorage){
 
 app.controller('userCtrl', userCtrl);
 
-headerCtrl.$inject = ["$http", "$window", "$scope", "localStorage"];
+userCtrl.$inject = ["$http", "$window", "$scope", "localStorage"];
 
 app.component('userComponent',{
-  templateUrl:'../app/templates/user.html',
+  templateUrl:'../src/app/templates/user.html',
   controller: 'userCtrl',
   controllerAs: 'vm',
   bindings: { $router: '<' }

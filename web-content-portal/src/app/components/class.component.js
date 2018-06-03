@@ -1,3 +1,5 @@
+var app = angular.module('web-content-portal');
+
 var classCtrl = function($http, $window, $scope, localStorage){
 	var vm = this;
 
@@ -10,7 +12,7 @@ var classCtrl = function($http, $window, $scope, localStorage){
 app.controller('classCtrl', classCtrl);
 
 app.component('classComponent',{
-  templateUrl:'../app/templates/class.html',
+  templateUrl:'../src/app/templates/class.html',
   controller: 'classCtrl',
   controllerAs: 'vm'
 });

@@ -1,3 +1,6 @@
+
+var app = angular.module('web-content-portal');
+
 var headerCtrl = function($http, $window, $scope, localStorage, modalFactory){
 	var vm = this;
 
@@ -133,6 +136,9 @@ var headerCtrl = function($http, $window, $scope, localStorage, modalFactory){
             if(localStorage.setAccessAndRefreshToken(obj)){
             	console.log("Access and refresh token refreshed in local storage.");
             	vm.updateUserInfo();
+            }else{
+                //handle the case when local storage is unsuccessful..
+                // show error message to user to redo the operation..
             }
 
         }, function (error) {
@@ -156,7 +162,7 @@ app.controller('headerCtrl', headerCtrl);
 headerCtrl.$inject = ["$http", "$window", "$scope", "localStorage", "modalFactory"];
 
 app.component('headerComponent',{
-  templateUrl:'../app/templates/header.html',
+  templateUrl:'../src/app/templates/header.html',
   controller: 'headerCtrl',
   controllerAs: 'vm'
 });

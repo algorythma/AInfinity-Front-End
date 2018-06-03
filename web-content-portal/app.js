@@ -96,6 +96,9 @@ app.factory("modalFactory", function($window, $rootScope){
                 break; 
             case "forceLogoutModal" :
                 dlgElem = angular.element("#forceLogoutModal");
+                break;
+            case "modalForgot" :
+                dlgElem = angular.element("#modalForgot");
                 break; 
             default: 
                 dlgElem = angular.element("#forceLogoutModal");
