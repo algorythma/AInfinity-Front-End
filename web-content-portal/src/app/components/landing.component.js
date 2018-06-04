@@ -1,7 +1,8 @@
 var app = angular.module('web-content-portal');
 
-var landingCtrl = function($http, $window, $scope, localStorage, modalFactory){
+var landingCtrl = function($http, $window, $scope, localStorage, modalFactory, CONSTANTS){
 	var vm = this;
+    $scope.CONSTANTS = CONSTANTS;
 
     vm.closeModal = function(){
         var dlgElem = angular.element(".modal");
@@ -119,8 +120,7 @@ var landingCtrl = function($http, $window, $scope, localStorage, modalFactory){
 
         }, function (error) {
 
-		    var errorDescription = error.data.description;
-
+            var errorDescription = createErrorMessages(error);
             var dlgElem = angular.element("#modalLoginForm .modal-body");
             var errorMessage = '<div class="alert alert-danger">' +errorDescription +' </div>';
             dlgElem.append(errorMessage);
@@ -136,10 +136,10 @@ var landingCtrl = function($http, $window, $scope, localStorage, modalFactory){
                dlgElem.modal("hide");
             }
         }, function (error) {
-            var errorDescription = error.data.description;
 
+            var errorDescription = createErrorMessages(error);
             var dlgElem = angular.element("#modalRegisterForm .modal-body");
-            var errorMessage = '<div class="alert alert-danger">' +errorDescription +' </div>';
+            var errorMessage = '<div class="alert alert-danger">' + errorDescription +' </div>';
             dlgElem.append(errorMessage);
 
         });
@@ -151,16 +151,14 @@ var landingCtrl = function($http, $window, $scope, localStorage, modalFactory){
 
         var dlgElem = angular.element("#modalForgot .modal-body");
 
-        var errorMessage = '<div class="alert alert-danger">Please enter valid email address. </div>';
+        var errorMessage = '<div class="alert alert-danger">'+ CONSTANTS.INVALID_EMAIL + '</div>';
 
         $http(request).then(function (response) {
             var tokenData = response.data;
             var successFlag = tokenData.success;
-            console.log("Success value=", tokenData.success);
-            // show success message to user
 
             if(successFlag){
-                errorMessage = '<div class="alert alert-success">Please check your email to reset your password.</div>';
+                errorMessage = '<div class="alert alert-success">' + CONSTANTS.FORGET_SUCCESS + '</div>';
             }
             dlgElem.append(errorMessage);
             
@@ -172,11 +170,47 @@ var landingCtrl = function($http, $window, $scope, localStorage, modalFactory){
 
     }
 
+    var createErrorMessages = function(errorObj){
+
+        var errCode, errDesc;
+            if(errorObj != null){
+
+                switch (errorObj.data.error_code) {
+                    case "1007" :
+                        errDesc = CONSTANTS.INVALID_DOB;
+                        break; 
+                    case "1005" :
+                        errDesc = CONSTANTS.USERNAME_EXISTS;
+                        break; 
+                    case "1003" :
+                        errDesc = CONSTANTS.INVALID_USERNAME_PASSWORD;
+                        break;
+                    case "1008" :
+                        errDesc = CONSTANTS.INVALID_EMAIL;
+                        break; 
+                    case "1001" :
+                        errDesc = CONSTANTS.MISSING_PARAMETER;
+                        break; 
+                    case "5000" :
+                        errDesc = CONSTANTS.INTERNAL_SERVER_ERROR;
+                        break; 
+                    case "1004" :
+                        errDesc = CONSTANTS.SESSION_EXPIRED;
+                        break; 
+                    default: 
+                        errDesc = CONSTANTS.REQUEST_FAILED;
+            }
+
+        }
+
+        return errDesc;
+    }
+
 }
 
 app.controller('landingCtrl', landingCtrl);
 
-landingCtrl.$inject = ["$http", "$window", "$scope", "localStorage", "modalFactory"];
+landingCtrl.$inject = ["$http", "$window", "$scope", "localStorage", "modalFactory", "CONSTANTS"];
 
 app.component('landingComponent',{
   templateUrl:'../src/app/templates/landing.html',

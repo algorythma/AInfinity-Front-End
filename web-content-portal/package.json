@@ -19,6 +19,7 @@
 		"webpack-dev-server": "^3.1.4"
 	},
 	"dependencies": {
+		"mime-types": "^2.1.18",
 		"query-string": "^6.1.0"
 	}
 }

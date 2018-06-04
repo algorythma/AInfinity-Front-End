@@ -1,9 +1,11 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const mime=require('mime-types');
 
 
 module.exports = {
   entry: ['./app.js',
+          './src/app/assets/static/constants.js',
           './src/app/components/landing.component.js',
           './src/app/components/header.component.js',
           './src/app/components/home.component.js',
@@ -14,19 +16,19 @@ module.exports = {
          ],
   devtool: 'inline-source-map',
   output: {
-  	path: __dirname + '/dist',
+    path: __dirname + '/dist',
     // path: '/',
     filename: 'bundle.js'
   },
   mode: 'development',
   watch: true,
   watchOptions: {
-	  aggregateTimeout: 300,
-	  poll: false
+    aggregateTimeout: 300,
+    poll: false
   },
   devServer: {  // configuration for webpack-dev-server
       // contentBase: './src',  //source of static assets
       watchContentBase: true, // initiate a page refresh if static content changes
-      port: 8080, // port to run dev-server
+      port: 3000, // port to run dev-server
   } 
 };
