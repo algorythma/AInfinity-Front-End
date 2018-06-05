@@ -1,7 +1,5 @@
 
-<div class="container-fluid dashboard-header">
-
-    <nav class="navbar navbar-static-top">
+    <!-- <nav class="navbar navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <i class="fa fa-home"></i>
@@ -12,15 +10,69 @@
                 <li class="navLi"><a href="#/assignments">Assignments</a></li>
             </ul>
             <div class="settings-div">
-                <button class="btn btn-primary btn-sm pull-right" ng-click="vm.updateUserInfo()">Settings</button>
-
-                <!-- <button type="button" class="btn btn-default pull-right" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." id="settingsPopOverId" ng-click="openSettingsPopOver()">
-                  Settings
-                </button> -->
+                <button class="btn btn-primary btn-sm pull-right" ng-click="vm.updateUserInfo()">My Profile</button>
             </div>
         </div>
+    </nav> -->
+
+<ng-include src="src/app/assets/templates/forceLogoutModal.html"></ng-include>
+
+<div id="topheader">
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">{P}</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+
+            <li class="dropdown">
+              <a href="#/assignments" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Assignments 
+                <span class="caret"></span></a>
+              <ul class="dropdown-menu submenu">
+                <li><a href="#/assignments/create">Create</a></li>
+                <li><a href="#">View</a></li>
+                <li><a href="#">Modify</a></li>
+                <!-- <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">One more separated link</a></li> -->
+              </ul>
+            </li>
+
+            <li><a href="#/students">Students <span class="sr-only">(current)</span></a></li>
+            <li><a href="#/class">Class</a></li>
+
+          </ul>
+          
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+              <ul class="dropdown-menu submenu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
     </nav>
 
-    <ng-include src="src/app/assets/templates/forceLogoutModal.html"></ng-include>
-
 </div>
+
+<ng-include src="src/app/assets/templates/contentTemplate.html"></ng-include>
+
+

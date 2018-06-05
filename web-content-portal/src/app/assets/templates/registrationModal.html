@@ -41,7 +41,14 @@
                     <div class="form-group" ng-class="{ 'has-error' : signUpForm.registerDobField.$invalid && !signUpForm.registerDobField.$pristine }">
                         <i class="fa fa-envelope prefix grey-text"></i>
                         <label data-error="wrong" data-success="right" for="dob">Date Of Birth</label>
-                        <input type="calendar" class="form-control" name="registerDobField" ng-model="vm.registerDob" required>
+                        <!-- <input type="calendar" class="form-control" name="registerDobField" ng-model="vm.registerDob" required> -->
+
+                        <div class='input-group date' id='datetimepicker1' data-provide="datepicker">
+                            <input type='text' class="form-control datepicker" name="registerDobField" ng-model="vm.registerDob" required/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
 
                         <p ng-show="signUpForm.registerDobField.$invalid && !signUpForm.registerDobField.$pristine" class="help-block">You date of birth is required.</p>
                     </div>

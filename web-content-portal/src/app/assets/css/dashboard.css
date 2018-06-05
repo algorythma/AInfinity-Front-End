@@ -4,9 +4,6 @@ body {
   font-weight: 400 !important;
 }
 
-.container-fluid{
-	padding: 0;
-}
 
 .homePageImage{
 	background-image: url("../img/lms.png");
@@ -15,7 +12,22 @@ body {
 	padding: 0;
 }
 
-.navbar-inverse{
+#topheader .navbar-nav > li.active a{
+	background-color: #337ab7;
+	color: #fff;
+}
+
+#topheader .navbar-nav .submenu > li > a{
+	background-color: #fff;
+	color: #333;
+}
+
+#topheader .navbar-nav .submenu > li > a:hover{
+	background-color: #337ab7;
+	color: #fff;
+}
+
+/*.navbar-inverse{
 	border-radius: 0;
 }
 
@@ -27,20 +39,11 @@ body {
 	margin-top: 20px;
 }
 
-.navbar .navbar-toggler{
-	margin-top: 20px;
-}
+.settings-div{
+	padding: 10px 20px 0 0;
+}*/
 
-.dashboard-header{
-	height: 50px;
-	line-height: 50px;
-	background-color: #2E3F56;
-}
-
-.dashboard-header nav{
-	border:0;
-}
-.navbar-header{
+/*.navbar-header{
 	background-color: #338DD0;
 }
 .navbar-header i{
@@ -53,9 +56,13 @@ body {
 	text-decoration: none;
     background-color: #338DD0;
     color: #fff;
+}*/
+
+.settings-div{
+	padding: 10px 20px 0 0;
 }
 
-.navLi{
+/*.navLi{
 	padding: 0 20px;
 }
 
@@ -63,9 +70,6 @@ body {
 	color: #fff;
 }
 
-.settings-div{
-	padding: 10px 20px 0 0;
-}
 
 assignment-component .container{
 	background-color: #F9F9F9;
@@ -80,4 +84,4 @@ assignment-component .container{
 #assignment-tab .nav-tabs>li.active>a{
 	    background-color: #338DD0;
 	    color: #fff;
-}
+}*/

@@ -12,7 +12,8 @@ module.exports = {
           './src/app/components/student.component.js',
           './src/app/components/class.component.js',
           './src/app/components/assignment.component.js',
-          './src/app/components/user.component.js'
+          './src/app/components/user.component.js',
+          './src/app/components/createassignment.component.js'
          ],
   devtool: 'inline-source-map',
   output: {

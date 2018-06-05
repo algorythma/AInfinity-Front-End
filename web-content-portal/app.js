@@ -18,7 +18,8 @@ app.component('dashboard',{
     {path:'/', component:'homeComponent', name:'Home'},
     {path:'/students', component:'studentComponent', name:'Student'},
     {path:'/class', component:'classComponent', name:'Class'},
-    {path:'/assignments', component:'assignmentComponent', name:'Assignment'}
+    {path:'/assignments', component:'assignmentComponent', name:'Assignment'},
+    {path:'/assignments/create', component:'createassignmentComponent', name:'Createsssignment'}
   ]
 });
 

@@ -5,6 +5,7 @@ app.constant('CONSTANTS',{
 	SIGN_UP	: 'Sign Up',
 	SIGN_IN : 'Sign In',
 	MASTER : 'Lets be Master...',
+	NEW_ASSIGNMENT : 'New Assignment',
 
 
 

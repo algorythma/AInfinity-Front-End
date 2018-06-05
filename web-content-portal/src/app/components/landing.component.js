@@ -4,6 +4,11 @@ var landingCtrl = function($http, $window, $scope, localStorage, modalFactory, C
 	var vm = this;
     $scope.CONSTANTS = CONSTANTS;
 
+    // $('.datepicker').datepicker({
+    //     format: 'mm/dd/yyyy',
+    //     startDate: '-3d'
+    // });
+
     vm.closeModal = function(){
         var dlgElem = angular.element(".modal");
         if (dlgElem) {
