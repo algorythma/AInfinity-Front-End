@@ -18,8 +18,9 @@ app.component('dashboard',{
     {path:'/', component:'homeComponent', name:'Home'},
     {path:'/students', component:'studentComponent', name:'Student'},
     {path:'/class', component:'classComponent', name:'Class'},
-    {path:'/assignments', component:'assignmentComponent', name:'Assignment'},
-    {path:'/assignments/create', component:'createassignmentComponent', name:'Createsssignment'}
+    // {path:'/assignments', component:'assignmentComponent', name:'Assignment'},
+    {path:'/create/contentgroup', component:'createContentGroupComponent', name:'CreateContentGroup'},
+    {path:'/create/unit', component:'createUnitComponent', name:'CreateUnit'}
   ]
 });
 
@@ -44,10 +45,12 @@ app.config(['$httpProvider', function ($httpProvider) {
 
 app.factory("localStorage", function($window, $rootScope) {
     return {
+
         setAccessAndRefreshToken: function(val) {
           $window.localStorage && $window.localStorage.setItem('my-storage', JSON.stringify(val));
           return this;
         },
+
         getAccessAndRefreshToken: function() {
           return JSON.parse($window.localStorage && $window.localStorage.getItem('my-storage'));
         },

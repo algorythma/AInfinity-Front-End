@@ -5,7 +5,21 @@ app.constant('CONSTANTS',{
 	SIGN_UP	: 'Sign Up',
 	SIGN_IN : 'Sign In',
 	MASTER : 'Lets be Master...',
-	NEW_ASSIGNMENT : 'New Assignment',
+	NEW_CONTENT_GROUP : 'New Content Group',
+	NEW_UNIT : 'New Unit',
+	EMAIL : 'Email',
+	FIRST_NAME : 'First Name',
+	LAST_NAME : 'Last Name',
+	DOB : 'Date Of Birth',
+	PASSWORD : 'Password',
+	LOGIN : 'Login',
+	FORGET_ACCOUNT : 'Forget Account ?',
+	FORGOT_YOUR_ACCOUNT : 'Forgot your account',
+	SUBMIT : 'Submit',
+	SESS_EXPIRED : 'Session Expired',
+	SESS_EXPIRED_OK : 'Your session is expired. Please click OK to login again.',
+	OK : 'OK',
+
 
 
 

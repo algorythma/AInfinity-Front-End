@@ -8,14 +8,14 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title font-weight-bold">Sign up</h4>
+                    <h4 class="modal-title font-weight-bold">{{CONSTANTS.SIGN_UP}}</h4>
                 </div>
 
                 <div class="modal-body">
 
                     <div class="form-group" ng-class="{ 'has-error' : signUpForm.registerEmailField.$invalid && !signUpForm.registerEmailField.$pristine }">
                         <i class="fa fa-envelope prefix grey-text"></i>
-                        <label data-error="wrong" data-success="right" for="email">Email</label>
+                        <label data-error="wrong" data-success="right" for="email">{{CONSTANTS.EMAIL}}</label>
                         <input type="email" class="form-control" name="registerEmailField" ng-model="vm.registerEmail" required>
 
                         <p ng-show="signUpForm.registerEmailField.$invalid && !signUpForm.registerEmailField.$pristine" class="help-block">Your email is required.</p>
@@ -24,7 +24,7 @@
 
                     <div class="form-group" ng-class="{ 'has-error' : signUpForm.registerNameField.$invalid && !signUpForm.registerNameField.$pristine }">
                         <i class="fa fa-user prefix grey-text"></i>
-                        <label data-error="wrong" data-success="right" for="first-name">First Name</label>
+                        <label data-error="wrong" data-success="right" for="first-name">{{CONSTANTS.FIRST_NAME}}</label>
                         <input type="text" class="form-control" name="registerNameField" ng-model="vm.registerFirstName" required>
 
                         <p ng-show="signUpForm.registerNameField.$invalid && !signUpForm.registerNameField.$pristine" class="help-block">You first name is required.</p>
@@ -32,7 +32,7 @@
 
                     <div class="form-group" ng-class="{ 'has-error' : signUpForm.registerLastNameField.$invalid && !signUpForm.registerLastNameField.$pristine }">
                         <i class="fa fa-user prefix grey-text"></i>
-                        <label data-error="wrong" data-success="right" for="last-name">Last Name</label>
+                        <label data-error="wrong" data-success="right" for="last-name">{{CONSTANTS.LAST_NAME}}</label>
                         <input type="text" class="form-control" name="registerLastNameField" ng-model="vm.registerLastName" required>
 
                         <p ng-show="signUpForm.registerLastNameField.$invalid && !signUpForm.registerLastNameField.$pristine" class="help-block">You last name is required.</p>
@@ -40,10 +40,10 @@
                     
                     <div class="form-group" ng-class="{ 'has-error' : signUpForm.registerDobField.$invalid && !signUpForm.registerDobField.$pristine }">
                         <i class="fa fa-envelope prefix grey-text"></i>
-                        <label data-error="wrong" data-success="right" for="dob">Date Of Birth</label>
+                        <label data-error="wrong" data-success="right" for="dob">{{CONSTANTS.DOB}}</label>
                         <!-- <input type="calendar" class="form-control" name="registerDobField" ng-model="vm.registerDob" required> -->
 
-                        <div class='input-group date' id='datetimepicker1' data-provide="datepicker">
+                        <div class='input-group date' id='datetimepicker1' data-provide="datepicker" data-date-format="dd-mm-yyyy">
                             <input type='text' class="form-control datepicker" name="registerDobField" ng-model="vm.registerDob" required/>
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
@@ -55,7 +55,7 @@
 
                     <div class="form-group" ng-class="{ 'has-error' : signUpForm.registerPasswordField.$invalid && !signUpForm.registerPasswordField.$pristine }">
                         <i class="fa fa-lock prefix grey-text"></i>
-                        <label data-error="wrong" data-success="right" for="pass">Your password</label>
+                        <label data-error="wrong" data-success="right" for="pass">{{CONSTANTS.PASSWORD}}</label>
                         <input type="password" class="form-control" name="registerPasswordField" ng-model="vm.registerPassword" required>
 
                         <p ng-show="signUpForm.registerPasswordField.$invalid && !signUpForm.registerPasswordField.$pristine" class="help-block">You password is required.</p>
@@ -64,7 +64,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-primary" ng-click="vm.registerMe()" ng-disabled="signUpForm.$invalid">Sign up</button>
+                    <button class="btn btn-primary" ng-click="vm.registerMe()" ng-disabled="signUpForm.$invalid">{{CONSTANTS.SIGN_UP}}</button>
                 </div>
 
             </form>

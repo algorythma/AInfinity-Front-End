@@ -8,14 +8,14 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title font-weight-bold">Login</h4>
+                    <h4 class="modal-title font-weight-bold">{{CONSTANTS.LOGIN}}</h4>
                 </div>
 
                 <div class="modal-body">
 
                     <div class="form-group" ng-class="{ 'has-error' : loginForm.loginEmailField.$invalid && !loginForm.loginEmailField.$pristine }">
                         <i class="fa fa-envelope prefix grey-text"></i>
-                        <label data-error="wrong" data-success="right" for="email">Email</label>
+                        <label data-error="wrong" data-success="right" for="email">{{CONSTANTS.EMAIL}}</label>
                         <input type="email" class="form-control" name="loginEmailField" ng-model="vm.loginUsername" required>
 
                         <p ng-show="loginForm.loginEmailField.$invalid && !loginForm.loginEmailField.$pristine" class="help-block">Your email is required.</p>
@@ -24,7 +24,7 @@
 
                     <div class="form-group" ng-class="{ 'has-error' : loginForm.loginPasswordField.$invalid && !loginForm.loginPasswordField.$pristine }">
                         <i class="fa fa-lock prefix grey-text"></i>
-                        <label data-error="wrong" data-success="right" for="pass">Password</label>
+                        <label data-error="wrong" data-success="right" for="pass">{{CONSTANTS.PASSWORD}}</label>
                         <input type="password" class="form-control" name="loginPasswordField" ng-model="vm.loginPassword" required>
 
                         <p ng-show="loginForm.loginPasswordField.$invalid && !loginForm.loginPasswordField.$pristine" class="help-block">Your password is required.</p>
@@ -34,8 +34,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-primary" ng-click="vm.loginMe()" ng-disabled="loginForm.$invalid">Login</button>
-                    <button class="btn btn-primary" ng-click="vm.openForgotModal();">Forgot account?</button>
+                    <button class="btn btn-primary" ng-click="vm.loginMe()" ng-disabled="loginForm.$invalid">{{CONSTANTS.LOGIN}}</button>
+                    <button class="btn btn-primary" ng-click="vm.openForgotModal();">{{CONSTANTS.FORGET_ACCOUNT}}</button>
                 </div>
 
             </form>

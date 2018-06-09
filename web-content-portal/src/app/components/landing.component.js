@@ -4,10 +4,11 @@ var landingCtrl = function($http, $window, $scope, localStorage, modalFactory, C
 	var vm = this;
     $scope.CONSTANTS = CONSTANTS;
 
-    // $('.datepicker').datepicker({
-    //     format: 'mm/dd/yyyy',
-    //     startDate: '-3d'
-    // });
+    $('#datetimepicker1').datepicker({
+        format: 'mm-dd-yyyy',
+        todayHighlight: true,
+        autoclose: true
+    });
 
     vm.closeModal = function(){
         var dlgElem = angular.element(".modal");
@@ -106,7 +107,7 @@ var landingCtrl = function($http, $window, $scope, localStorage, modalFactory, C
 
     var httpPostLoginCall = function(request) {
 
-    	console.log("Inside httpPostCall function ");
+    	console.log("Inside httpPostLoginCall function ");
 
         $http(request).then(function (response) {
             var tokenData = response.data;
@@ -129,13 +130,15 @@ var landingCtrl = function($http, $window, $scope, localStorage, modalFactory, C
             var dlgElem = angular.element("#modalLoginForm .modal-body");
             var errorMessage = '<div class="alert alert-danger">' +errorDescription +' </div>';
             dlgElem.append(errorMessage);
+
         });
     }
 
     var httpPostSignUpCall = function(request) {
 
-        console.log("Inside httpPostCall function ");
+        console.log("Inside httpPostSignUpCall function ");
         var dlgElem = angular.element("#modalRegisterForm");
+
         $http(request).then(function (response) {
             if (dlgElem) {
                dlgElem.modal("hide");

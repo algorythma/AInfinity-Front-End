@@ -13,7 +13,8 @@ module.exports = {
           './src/app/components/class.component.js',
           './src/app/components/assignment.component.js',
           './src/app/components/user.component.js',
-          './src/app/components/createassignment.component.js'
+          './src/app/components/createContentGroup.component.js',
+          './src/app/components/createUnit.component.js'
          ],
   devtool: 'inline-source-map',
   output: {
