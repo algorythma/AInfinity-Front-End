@@ -6,29 +6,30 @@
 	  </div>
 	  <div class="panel-body">
 
-	  	<form class="form-horizontal">
+	  	<form name="contentGroupForm" class="myForm form-horizontal" required>
 
-		  <div class="form-group">
-		    <label for="inputTitle" class="col-sm-2 control-label">Name</label>
+		  <div class="form-group" ng-class="{ 'has-error' : contentGroupForm.cgNameField.$invalid && !contentGroupForm.cgNameField.$pristine }">
+		  	
+		    <label for="cgNameField" class="col-sm-2 control-label">Name</label>
 		    <div class="col-sm-10">
-		      <input type="email" class="form-control" id="inputTitle" placeholder="Title">
+		      <input type="text" class="form-control" ng-model="vm.cgName" name="cgNameField" placeholder="Name" required>
+
+		      <p ng-show="contentGroupForm.cgNameField.$invalid && !contentGroupForm.cgNameField.$pristine" class="help-block">Please enter name for content group.</p>
 		    </div>
 		  </div>
 
 		  <div class="form-group">
 		    <label for="description" class="col-sm-2 control-label">Description</label>
 		    <div class="col-sm-10">
-		    	<textarea class="form-control" rows="3" placeholder="Description"></textarea>
+		    	<textarea class="form-control" rows="3" placeholder="Description" ng-model="vm.cgDesc"></textarea>
 		    </div>
 		  </div>
 
 
-		  
-
 			<div class="form-group">
 			    <label for="sort" class="col-sm-2 control-label"> Parent </label>
 			    <div class="col-sm-10">
-			        <select class="form-control" name="sort" id="sort">
+			        <select class="form-control" name="sort" id="sort" ng-model="vm.cgParent">
 			            <option value="1">1</option>
 			            <option value="12">12</option>
 			            <option value="13">13</option>
@@ -38,7 +39,7 @@
 			</div>
 
 
-		  <div class="form-group">
+		  <!-- <div class="form-group">
 	    	  <div class="col-sm-offset-2 col-sm-10">
 				  <div class="checkbox">
 					  <label class="checkbox-inline">
@@ -52,13 +53,14 @@
 					  </label>
 				  </div>
 			  </div>
-		  </div>
+		  </div> -->
 		  
 		  <div class="form-group">
 		    <div class="col-sm-offset-2 col-sm-10">
-		      <button type="submit" class="btn btn-primary">Submit</button>
+		      <button type="submit" class="btn btn-primary" ng-click="vm.addNewContentGroup()" ng-disabled="contentGroupForm.$invalid">Submit</button>
 		    </div>
 		  </div>
+
 		</form>
 
 	  </div>

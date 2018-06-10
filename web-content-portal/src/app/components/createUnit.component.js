@@ -4,40 +4,93 @@ var createUnitCtrl = function($http, $window, $scope, localStorage, modalFactory
 	var vm = this;
 	$scope.CONSTANTS = CONSTANTS;
 
-	var recorder = document.getElementById('recorder');
-  	var player = document.getElementById('player');
+	var navigator = window.navigator;
+	navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
 
-  	recorder.addEventListener('change', function(e) {
+	var Context = window.AudioContext || window.webkitAudioContext;
+	var context = new Context();
 
-	    var file = e.target.files[0];
-	    // Do something with the audio file.
-	    console.log("Inside recorder function");
-	    player.src =  URL.createObjectURL(file);
-	  });
+	var resObj, recordButton, stopButton, recorder;
+	recordButton = angular.element('#record');
+	stopButton = angular.element('#stop');
 
-  	navigator.mediaDevices.getUserMedia({ audio: true, video: false })
-      .then(handleSuccess);
+	initAudio();
 
-      var handleSuccess = function(stream) {
-	    // if (window.URL) {
-	    //   player.src = window.URL.createObjectURL(stream);
-	    // } else {
-	    //   player.src = stream;
-	    // }
+	recordButton.prop('disabled', false);
+	recordButton.click(startRecording);
+	stopButton.click(stopRecording);
 
-	    var context = new AudioContext();
-	    var source = context.createMediaStreamSource(stream);
-	    var processor = context.createScriptProcessor(1024, 1, 1);
+	function startRecording() {
+	   recordButton.prop('disabled', true);
+	   stopButton.prop('disabled', false);
+	   recorder.clear();
+	   recorder.record();
+	}
 
-	    source.connect(processor);
-	    processor.connect(context.destination);
+	function stopRecording() {
+	   recordButton.prop('disabled', false);
+	   stopButton.prop('disabled', true);
+	   recorder.stop();
+	   recorder.exportWAV(stereo_cb);
+	   recorder.clear();
+	}
 
-	    processor.onaudioprocess = function(e) {
-	      // Do something with the data, i.e Convert this to WAV
-	      console.log(e.inputBuffer);
-	    };
-	    
-	  };
+	function stereo_cb(blob){
+	   console.log("blob = ", blob);
+	   // var msg = new Blob([context.sampleRate, blob]);
+	   var formData = new FormData();
+	   formData.append('audio', blob);
+	   //    formData.append('debug', $('#debug').prop('checked'))
+	   formData.append('debug', true)
+
+	   //postAsFormData(formData, prediction_service, prediction_callback);
+	   audio.src = URL.createObjectURL(blob);
+	   audio.play();
+	};
+
+	function initAudio() {
+	   if (!navigator.getUserMedia)
+	       navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia
+	   if (!navigator.cancelAnimationFrame)
+	       navigator.cancelAnimationFrame = navigator.webkitCancelAnimationFrame || navigator.mozCancelAnimationFrame;
+	   if (!navigator.requestAnimationFrame)
+	       navigator.requestAnimationFrame = navigator.webkitRequestAnimationFrame || navigator.mozRequestAnimationFrame;
+
+	   navigator.getUserMedia(
+	   {
+	       "audio": {
+	           "mandatory": {
+	               "googEchoCancellation": "true",
+	               "googAutoGainControl": "true",
+	               "googNoiseSuppression": "true",
+	               "googHighpassFilter": "true"
+	           },
+	           "optional": []
+	       },
+	   }, gotStream, function(e) {
+	       alert('Error getting audio');
+	       console.log(e);
+	   });
+	}
+
+	function gotStream(stream) {
+	   var inputPoint = context.createGain();
+
+	   // Create an AudioNode from the stream.
+	   var audioInput = context.createMediaStreamSource(stream);
+	   audioInput.connect(inputPoint);
+
+	   var analyserNode = context.createAnalyser();
+	   analyserNode.fftSize = 2048;
+	   inputPoint.connect(analyserNode);
+
+	   recorder = new Recorder(inputPoint);
+
+	   var zeroGain = context.createGain();
+	   zeroGain.gain.value = 0.0;
+	   inputPoint.connect(zeroGain);
+	   zeroGain.connect(context.destination);
+	}
 
 
 

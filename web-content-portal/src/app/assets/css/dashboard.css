@@ -31,6 +31,14 @@ body {
 	padding-top: 7px;
 }
 
+.recordAudioDiv{
+	padding-top: 7px;
+}
+
+audio{
+	vertical-align: top;
+}
+
 /*.navbar-inverse{
 	border-radius: 0;
 }

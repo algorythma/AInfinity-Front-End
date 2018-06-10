@@ -114,7 +114,11 @@ app.factory("modalFactory", function($window, $rootScope){
     }
 
   };
-
 });
+
+
+
+
+
 
 

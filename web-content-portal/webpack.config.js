@@ -5,6 +5,7 @@ const mime=require('mime-types');
 
 module.exports = {
   entry: ['./app.js',
+          './src/app/services/app.services.js',
           './src/app/assets/static/constants.js',
           './src/app/components/landing.component.js',
           './src/app/components/header.component.js',
